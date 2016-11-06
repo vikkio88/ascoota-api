@@ -7,6 +7,11 @@ use Illuminate\Database\Eloquent\Model as Eloquent;
 class SlimeModel extends Eloquent
 {
 
+    protected $hidden = [
+        'created_at',
+        'updated_at'
+    ];
+
     public static function scopePage($query, $pagination)
     {
         $limit = $pagination['limit'];

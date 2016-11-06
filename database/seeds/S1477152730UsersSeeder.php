@@ -1,6 +1,7 @@
 <?php
 
 use App\Lib\Slime\Interfaces\DatabaseHelpers\DbHelperInterface;
+use App\Models\Users\User;
 
 class S1477152730UsersSeeder implements DbHelperInterface
 {
@@ -10,12 +11,11 @@ class S1477152730UsersSeeder implements DbHelperInterface
         $faker = Faker\Factory::create();
         $usersNumber = 10;
         for ($i = 1; $i <= $usersNumber; $i++) {
-            \App\Models\User::create(
+            User::create(
                 [
                     'name' => $faker->name,
-                    'surname' => $faker->lastName,
+                    'username' => $faker->userName,
                     'email' => $faker->email,
-                    'age' => rand(15, 99),
                 ]
             );
         }
