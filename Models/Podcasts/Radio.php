@@ -13,4 +13,9 @@ class Radio extends SlimeModel
         'website',
         'logo_url'
     ];
+
+    public function shows()
+    {
+        return $this->hasMany(RadioShow::class);
+    }
 }

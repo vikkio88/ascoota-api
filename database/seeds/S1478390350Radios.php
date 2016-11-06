@@ -15,7 +15,7 @@ class S1478390350Radios implements DbHelperInterface
             Radio::create(
                 [
                     'name' => $faker->company . rand(1, 5),
-                    'description' => $faker->text(rand(2, 100)),
+                    'description' => $faker->text(rand(6, 100)),
                     'language_id' => Language::all()->random()->id,
                     'website' => $faker->url,
                     'logo_url' => $faker->imageUrl(200, 200)

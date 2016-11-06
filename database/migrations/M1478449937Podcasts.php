@@ -5,22 +5,22 @@ use App\Lib\Slime\Interfaces\DatabaseHelpers\DbHelperInterface;
 use Illuminate\Database\Capsule\Manager as Capsule;
 use \Illuminate\Database\Schema\Blueprint as Blueprint;
 
-class M1478387975Radios implements DbHelperInterface
+class M1478449937Podcasts implements DbHelperInterface
 {
 
     public function run()
     {
-        $tableName = 'radios';
-
+        $tableName = 'podcasts';
         Capsule::schema()->dropIfExists($tableName);
         Capsule::schema()->create($tableName, function (Blueprint $table) {
             $table->increments('id');
-            $table->string('name', 150);
+            $table->string('name');
             $table->string('description', 150)->nullable();
-            $table->integer('language_id')->index()->unsigned();
-            $table->string('website');
-            $table->string('logo_url')->nullable();
+            $table->dateTime('date')->nullable();
+            $table->integer('radio_show_id')->index()->unsigned()->nullable();
+            $table->string('file_url')->nullable();
             $table->timestamps();
         });
     }
+
 }

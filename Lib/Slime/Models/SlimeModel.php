@@ -9,7 +9,8 @@ class SlimeModel extends Eloquent
 
     protected $hidden = [
         'created_at',
-        'updated_at'
+        'updated_at',
+        'pivot'
     ];
 
     public static function scopePage($query, $pagination)
