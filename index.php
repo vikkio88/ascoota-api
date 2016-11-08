@@ -11,6 +11,10 @@ $api = new App(
     new Container(Config::get('app.boot'))
 );
 
+$api->add(
+    new RKA\Middleware\IpAddress()
+);
+
 $routes = RouteLoader::load();
 foreach ($routes as $route) {
     require_once($route);

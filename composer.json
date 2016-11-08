@@ -7,7 +7,8 @@
     "require": {
         "slim/slim": "^3.0",
         "illuminate/database": "*",
-        "vlucas/phpdotenv": "^2.3"
+        "vlucas/phpdotenv": "^2.3",
+        "akrabat/rka-ip-address-middleware": "^0.4.0"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",
