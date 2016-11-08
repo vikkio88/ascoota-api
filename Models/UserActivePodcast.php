@@ -18,6 +18,10 @@ class UserActivePodcast extends SlimeModel
         'position'
     ];
 
+    protected $casts = [
+        'position' => 'int'
+    ];
+
     public function podcast()
     {
         return $this->belongsTo(Podcast::class);

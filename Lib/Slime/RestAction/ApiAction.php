@@ -66,4 +66,10 @@ abstract class ApiAction extends Action
         }
         return json_encode($body);
     }
+
+    protected function getJsonRequestBody()
+    {
+        $json = $this->request->getBody();
+        return json_decode($json, true);
+    }
 }
