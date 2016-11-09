@@ -3,6 +3,7 @@
 
 namespace App\Lib\Helpers;
 
+use App\Lib\Parsers\DeepFeedParser;
 use SimpleXMLElement;
 
 
@@ -58,6 +59,14 @@ class RadioFeedGateway
         $feedXml = $this->getRemoteFeedXml($url);
         return $this->xmlToArray($feedXml);
     }
+
+    public function parsePodcastArrayFromFeed($url)
+    {
+        $feedXml = $this->getRemoteFeedXml($url);
+        $parser = new DeepFeedParser();
+        return $parser->xmlToArray($feedXml);
+    }
+
 
     private function xmlToArray($feedXml)
     {
