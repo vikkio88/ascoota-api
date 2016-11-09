@@ -11,9 +11,9 @@ class RadioShow extends SlimeModel
         'name',
         'description',
         'website',
+        'feed_url',
         'logo_url',
         'radio_id',
-        'last_sync',
         'frequency_id'
     ];
 

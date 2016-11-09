@@ -21,9 +21,8 @@ class S1478456992RadioShows implements DbHelperInterface
                         'description' => $faker->text(rand(6, 100)),
                         'radio_id' => $radio->id,
                         'website' => $faker->url,
+                        'feed_url' => $faker->url . '/feed.xml',
                         'logo_url' => $faker->imageUrl(200, 200),
-                        'last_sync' => $faker->dateTime,
-                        'next_sync' => $faker->dateTime,
                         'frequency_id' => ShowFrequency::all()->random()->id
                     ]
                 );
