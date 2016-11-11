@@ -15,7 +15,10 @@ class M1478449930RadioShows implements DbHelperInterface
         Capsule::schema()->create($tableName, function (Blueprint $table) {
             $table->increments('id');
             $table->string('name', 150);
+            $table->string('slug')->index();
             $table->string('description')->nullable();
+            $table->string('author')->nullable();
+            $table->boolean('explicit')->default(false);
             $table->integer('radio_id')->index()->unsigned();
             $table->string('website')->nullable();
             $table->string('feed_url')->nullable();

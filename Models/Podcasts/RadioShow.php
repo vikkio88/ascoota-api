@@ -9,12 +9,19 @@ class RadioShow extends SlimeModel
 
     protected $fillable = [
         'name',
+        'slug',
         'description',
+        'author',
+        'explicit',
+        'radio_id',
         'website',
         'feed_url',
         'logo_url',
-        'radio_id',
         'frequency_id'
+    ];
+
+    protected $casts = [
+        'explicit' => 'boolean'
     ];
 
     public function radio()
@@ -24,6 +31,21 @@ class RadioShow extends SlimeModel
 
     public function podcasts()
     {
-        return $this->hasMany(Podcast::class);
+        return $this->hasMany(Podcast::class)
+            ->orderBy('date', 'DESC')
+            ->limit(5);
+    }
+
+    public function categories()
+    {
+        return $this->belongsToMany(Category::class, 'radio_show_categories');
+    }
+
+    public function scopeInfo($query)
+    {
+        return $query->with(
+            'categories',
+            'podcasts'
+        );
     }
 }

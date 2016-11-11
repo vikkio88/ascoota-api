@@ -10,9 +10,7 @@ class ShowGetOne extends ApiAction
 {
     protected function performAction()
     {
-        $this->payload = RadioShow::with(
-            'podcasts'
-        )->where(
+        $this->payload = RadioShow::info()->where(
             [
                 'radio_id' => $this->args['id'],
                 'id' => $this->args['showId'],
