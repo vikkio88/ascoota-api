@@ -54,13 +54,13 @@ class RadioFeedGateway
      * @return string
      * @internal param $args
      */
-    public function getPodcastArrayFromFeed($url)
+    public function getSimplePodcastArrayFromFeed($url)
     {
         $feedXml = $this->getRemoteFeedXml($url);
         return $this->xmlToArray($feedXml);
     }
 
-    public function parsePodcastArrayFromFeed($url)
+    public function getFullPodcastArrayFromFeed($url)
     {
         $feedXml = $this->getRemoteFeedXml($url);
         $parser = new DeepFeedParser();
