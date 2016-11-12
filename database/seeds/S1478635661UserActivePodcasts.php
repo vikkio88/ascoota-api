@@ -2,8 +2,8 @@
 
 use App\Lib\Slime\Interfaces\DatabaseHelpers\DbHelperInterface;
 use App\Models\Podcasts\Podcast;
-use App\Models\UserActivePodcast;
 use App\Models\Users\User;
+use App\Models\Users\UserActivePodcast;
 
 class S1478635661UserActivePodcasts implements DbHelperInterface
 {

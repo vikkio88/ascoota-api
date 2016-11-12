@@ -3,9 +3,18 @@
 use App\Actions\Podcast\RadioGetAll;
 use App\Actions\Podcast\RadioGetOne;
 use App\Actions\Podcast\ShowGetOne;
+use App\Actions\User\LoggedIn\ShowImportRequestAdd;
 
 $api->get('/radios', function ($request, $response, $args) {
     return (new RadioGetAll(
+        $request,
+        $response,
+        $args
+    ))->execute();
+});
+
+$api->post('/radios/{id}/shows/import', function ($request, $response, $args) {
+    return (new ShowImportRequestAdd(
         $request,
         $response,
         $args

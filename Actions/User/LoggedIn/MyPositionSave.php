@@ -4,7 +4,7 @@
 namespace App\Actions\User\LoggedIn;
 
 use App\Actions\Base\AuthApiAction;
-use App\Models\UserActivePodcast;
+use App\Models\Users\UserActivePodcast;
 
 class MyPositionSave extends AuthApiAction
 {

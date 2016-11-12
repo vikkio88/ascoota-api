@@ -2,7 +2,7 @@
 
 use App\Lib\Slime\Interfaces\DatabaseHelpers\DbHelperInterface;
 use App\Models\Users\User;
-use App\Models\UserToken;
+use App\Models\Users\UserToken;
 
 class S1478638829UserTokens implements DbHelperInterface
 {
