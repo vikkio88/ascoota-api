@@ -16,6 +16,7 @@ class M1478449937Podcasts implements DbHelperInterface
             $table->increments('id');
             $table->string('name');
             $table->string('description', 150)->nullable();
+            $table->string('duration', 20)->nullable();
             $table->dateTime('date')->nullable();
             $table->integer('radio_show_id')->index()->unsigned()->nullable();
             $table->string('file_url')->nullable();

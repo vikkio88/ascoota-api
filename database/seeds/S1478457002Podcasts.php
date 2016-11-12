@@ -18,6 +18,7 @@ class S1478457002Podcasts implements DbHelperInterface
                     [
                         'name' => $faker->text(rand(6, 100)),
                         'description' => $faker->text(rand(10, 100)),
+                        'duration' => sprintf("00:%d:%d", rand(10, 60), rand(10, 60)),
                         'date' => $faker->dateTime,
                         'file_url' => $faker->url . '/' . str_random(10) . '.mp3',
                         'radio_show_id' => $radioShow->id

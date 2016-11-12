@@ -9,6 +9,7 @@ class Podcast extends SlimeModel
     protected $fillable = [
         'name',
         'description',
+        'duration',
         'date',
         'file_url',
         'radio_show_id'
