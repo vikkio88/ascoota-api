@@ -1,5 +1,10 @@
 <?php
 
+use App\Actions\User\Admin\FeedRequestApprove;
+use App\Actions\User\Admin\FeedRequestDecline;
+use App\Actions\User\Admin\FeedRequestGetAll;
+use App\Actions\User\Admin\FeedRequestGetOne;
+
 $api->get('/admin/requests', function ($request, $response, $args) {
     return (new FeedRequestGetAll(
         $request,

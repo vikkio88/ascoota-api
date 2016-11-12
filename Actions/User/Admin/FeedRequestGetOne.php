@@ -12,7 +12,7 @@ class FeedRequestGetOne extends AdminApiAction
 
     protected function performAction()
     {
-        $this->payload = FeedRequest::where(
+        $this->payload = FeedRequest::info()->where(
             'id',
             $this->args['id']
         )->first();

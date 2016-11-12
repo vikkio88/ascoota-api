@@ -13,4 +13,19 @@ class FeedRequest extends SlimeModel
         'user_id',
         'approved'
     ];
+
+    protected $casts = [
+        'approved' => 'boolean',
+        'radio_id' => 'int'
+    ];
+
+    public function scopeInfo($query)
+    {
+        return $query->with('user');
+    }
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 }

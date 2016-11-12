@@ -9,11 +9,11 @@ class M1478990924Admins implements DbHelperInterface {
 
         public function run()
         {
-        $tableName = 'table_name';
+        $tableName = 'admins';
         Capsule::schema()->dropIfExists($tableName);
         Capsule::schema()->create($tableName, function (Blueprint $table) {
             $table->increments('id');
-            $table->string('name');
+            $table->integer('user_id')->index()->unsigned();
             $table->timestamps();
         });
         }
