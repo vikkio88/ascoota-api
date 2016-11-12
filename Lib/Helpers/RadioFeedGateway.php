@@ -4,6 +4,7 @@
 namespace App\Lib\Helpers;
 
 use App\Lib\Parsers\DeepFeedParser;
+use Exception;
 use SimpleXMLElement;
 
 
@@ -25,7 +26,13 @@ class RadioFeedGateway
      */
     private function getRemoteFeedXml($url)
     {
-        return file_get_contents($url);
+        $feedContent = '';
+        try {
+            $feedContent = file_get_contents($url);
+        } catch (Exception $error) {
+            $feedContent = '<error></error>';
+        }
+        return $feedContent;
     }
 
     /**
