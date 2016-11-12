@@ -7,7 +7,7 @@ namespace App\Actions\Base;
 use App\Lib\Helpers\Config;
 use App\Lib\Slime\Exceptions\Http\UnAuthorizedException;
 use App\Lib\Slime\RestAction\ApiAction;
-use App\Models\UserToken;
+use App\Models\Users\UserToken;
 
 abstract class AuthApiAction extends ApiAction
 {

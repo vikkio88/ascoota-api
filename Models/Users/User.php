@@ -3,7 +3,6 @@
 namespace App\Models\Users;
 
 use App\Lib\Slime\Models\SlimeModel;
-use App\Models\UserActivePodcast;
 
 class User extends SlimeModel
 {
