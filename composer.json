@@ -1,19 +1,16 @@
 {
     "name": "vikkio88/ascoota-api",
     "description": "a simple RestFul API service for Ascoota, based on SlimE",
-    "keywords": ["podcast", "vikkio88", "rest", "eloquent", "microservice"],
+    "keywords": ["podcast", "vikkio88", "rest", "eloquent", "podcast-api"],
     "license": "MIT",
     "type": "project",
     "require": {
-        "slim/slim": "^3.0",
-        "illuminate/database": "*",
-        "vlucas/phpdotenv": "^2.3",
+        "vikkio88/slime-framework": "dev-master",
         "akrabat/rka-ip-address-middleware": "^0.4.0"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",
-        "phpunit/phpunit": "~4.0",
-        "hot/phpunit-runner": "dev-master"
+        "phpunit/phpunit": "~4.0"
     },
     "autoload": {
         "files": [ "config/database.php" ],
@@ -26,8 +23,7 @@
     },
     "autoload-dev": {
         "psr-4": {
-            "": "tests/",
-            "Tests\\Helpers\\": "tests/Helpers"
+            "": "tests/"
         }
     }
 }
