@@ -18,8 +18,12 @@ class S1478388654Languages implements DbHelperInterface
                 'name' => 'German'
             ],
             [
-                'iso' => 'en',
-                'name' => 'English'
+                'iso' => 'gb',
+                'name' => 'British English'
+            ],
+            [
+                'iso' => 'us',
+                'name' => 'USA'
             ],
             [
                 'iso' => 'fr',
