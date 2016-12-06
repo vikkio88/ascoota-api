@@ -14,7 +14,8 @@ class RadioGetAll extends ApiAction
     protected function performAction()
     {
         $this->pagination = $this->getPaginationParams($this->request);
-        $this->payload = Radio::page(
+        $this->payload = Radio::with('language')
+        ->page(
             $this->pagination
         )->get();
     }

@@ -3,6 +3,7 @@
 namespace App\Models\Podcasts;
 
 use App\Lib\Slime\Models\SlimeModel;
+use App\Models\Misc\Language;
 
 class Radio extends SlimeModel
 {
@@ -13,6 +14,10 @@ class Radio extends SlimeModel
         'website',
         'logo_url'
     ];
+
+    public function language(){
+        return $this->belongsTo(Language::class);
+    }
 
     public function shows()
     {
