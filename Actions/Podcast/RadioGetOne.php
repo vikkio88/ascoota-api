@@ -10,11 +10,10 @@ class RadioGetOne extends ApiAction
 {
     protected function performAction()
     {
-        $this->payload = Radio::with(
-            'shows'
-        )->where(
-            'id',
-            $this->args['id']
-        )->first();
+        $this->payload = Radio::complete()
+            ->where(
+                'id',
+                $this->args['id']
+            )->first();
     }
 }

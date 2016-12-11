@@ -15,12 +15,28 @@ class Radio extends SlimeModel
         'logo_url'
     ];
 
-    public function language(){
+    protected $hidden = [
+        'created_at',
+        'updated_at',
+        'pivot',
+        'language_id'
+    ];
+
+    public function language()
+    {
         return $this->belongsTo(Language::class);
     }
 
     public function shows()
     {
         return $this->hasMany(RadioShow::class);
+    }
+
+    public function scopeComplete($query)
+    {
+        return $query->with(
+            'language',
+            'shows'
+        );
     }
 }
