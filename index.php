@@ -15,6 +15,10 @@ $api->add(
     new RKA\Middleware\IpAddress()
 );
 
+$api->add(
+    new \CorsSlim\CorsSlim()
+);
+
 $routes = RouteLoader::load();
 foreach ($routes as $route) {
     require_once($route);
