@@ -15,8 +15,10 @@ class RadioGetAll extends ApiAction
     {
         $this->pagination = $this->getPaginationParams($this->request);
         $this->payload = Radio::with('language')
-        ->page(
-            $this->pagination
-        )->get();
+            ->filter(
+                $this->getQueryParams()
+            )->page(
+                $this->pagination
+            )->get();
     }
 }

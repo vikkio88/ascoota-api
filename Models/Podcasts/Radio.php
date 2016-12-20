@@ -22,6 +22,13 @@ class Radio extends SlimeModel
         'language_id'
     ];
 
+    protected $filters = [
+        'name' => [
+            'col' => 'name',
+            'op' => 'LIKE'
+        ]
+    ];
+
     public function language()
     {
         return $this->belongsTo(Language::class);
