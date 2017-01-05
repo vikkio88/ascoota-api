@@ -20,6 +20,7 @@ class M1478449930RadioShows implements DbHelperInterface
             $table->string('author')->nullable();
             $table->boolean('explicit')->default(false);
             $table->integer('radio_id')->index()->unsigned();
+            $table->integer('language_id')->index()->unsigned();
             $table->string('website')->nullable();
             $table->string('feed_url')->nullable();
             $table->string('logo_url')->nullable();

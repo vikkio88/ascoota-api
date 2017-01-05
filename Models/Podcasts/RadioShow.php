@@ -3,6 +3,7 @@
 namespace App\Models\Podcasts;
 
 use App\Lib\Slime\Models\SlimeModel;
+use App\Models\Misc\Language;
 
 class RadioShow extends SlimeModel
 {
@@ -14,10 +15,18 @@ class RadioShow extends SlimeModel
         'author',
         'explicit',
         'radio_id',
+        'language_id',
         'website',
         'feed_url',
         'logo_url',
         'frequency_id'
+    ];
+
+    protected $hidden = [
+        'created_at',
+        'updated_at',
+        'pivot',
+        'language_id'
     ];
 
     protected $casts = [
@@ -41,11 +50,17 @@ class RadioShow extends SlimeModel
         return $this->belongsToMany(Category::class, 'radio_show_categories');
     }
 
+    public function language()
+    {
+        return $this->belongsTo(Language::class);
+    }
+
     public function scopeInfo($query)
     {
         return $query->with(
             'categories',
-            'podcasts'
+            'podcasts',
+            'language'
         );
     }
 }
