@@ -6,5 +6,6 @@ return [
             'displayErrorDetails' => true,
         ]
     ],
-    'authHeader' => 'ASCOOTA-TOKEN'
+    'authHeader' => 'ASCOOTA-TOKEN',
+    'logActions' => true
 ];
