@@ -12,9 +12,9 @@ class M1483878234LogActions implements DbHelperInterface {
         $tableName = 'log_actions';
         Capsule::schema()->dropIfExists($tableName);
         Capsule::schema()->create($tableName, function (Blueprint $table) {
-            $table->string('navigator');
+            $table->string('navigator')->nullable();
             $table->string('ip');
-            $table->string('action');
+            $table->string('action')->nullable();
             $table->timestamps();
         });
         }
