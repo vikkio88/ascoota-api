@@ -12,8 +12,29 @@ class Podcast extends SlimeModel
         'duration',
         'date',
         'file_url',
-        'radio_show_id'
+        'radio_show_id',
+        'previous_podcast_id',
+        'next_podcast_id',
     ];
+
+
+    public function next()
+    {
+        return $this->hasOne(
+            Podcast::class,
+            'id',
+            'next_podcast_id'
+        );
+    }
+
+    public function previous()
+    {
+        return $this->hasOne(
+            Podcast::class,
+            'id',
+            'previous_podcast_id'
+        );
+    }
 
 
     public function show()
@@ -21,6 +42,15 @@ class Podcast extends SlimeModel
         return $this->belongsTo(
             RadioShow::class,
             'radio_show_id'
+        );
+    }
+
+    public function scopeComplete($query)
+    {
+        return $query->with(
+            'show',
+            'previous',
+            'next'
         );
     }
 }

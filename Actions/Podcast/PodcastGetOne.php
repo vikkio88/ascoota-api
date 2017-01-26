@@ -11,11 +11,10 @@ class PodcastGetOne extends ApiAction
 
     protected function performAction()
     {
-        $this->payload = Podcast::with(
-            'show'
-        )->where(
-            'id',
-            $this->args['id']
-        )->first();
+        $this->payload = Podcast::complete()
+            ->where(
+                'id',
+                $this->args['id']
+            )->first();
     }
 }
