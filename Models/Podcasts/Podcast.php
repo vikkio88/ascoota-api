@@ -53,4 +53,13 @@ class Podcast extends SlimeModel
             'next'
         );
     }
+
+    public function scopeLatestByShowId($query, $showId)
+    {
+        return $query->where
+        (
+            'radio_show_id',
+            $showId
+        )->orderBy('created_at', 'desc');
+    }
 }
