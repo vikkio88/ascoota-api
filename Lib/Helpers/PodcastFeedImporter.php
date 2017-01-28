@@ -86,12 +86,16 @@ class PodcastFeedImporter
         return $this->getOrNull($channel, $attributeName);
     }
 
-    public function getPodcastsInfo()
+    public function getPodcastsInfo($latestGuid = null)
     {
         if (empty($this->podcasts)) {
             $items = $this->getAttributeFromFeed('item');
             foreach ($items as $item) {
-                $this->podcasts[] = $this->getPodcastFromFeedItem($item);
+                $podcast = $this->getPodcastFromFeedItem($item);
+                if ($latestGuid !== null && $podcast->file_url == $latestGuid){
+                    return $this->podcasts;
+                }
+                $this->podcasts[] = $podcast;
             }
         }
 
