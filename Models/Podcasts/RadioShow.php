@@ -42,7 +42,7 @@ class RadioShow extends SlimeModel
     {
         return $this->hasMany(Podcast::class)
             ->orderBy('date', 'DESC')
-            ->limit(5);
+            ->limit(6);
     }
 
     public function categories()
