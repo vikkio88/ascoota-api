@@ -14,7 +14,6 @@ $api->get('/users', function ($request, $response, $args) {
     )->execute();
 });
 
-
 $api->get('/me', function ($request, $response, $args) {
     return (
     new MyInfoGet(
