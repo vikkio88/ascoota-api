@@ -16,6 +16,7 @@ foreach ($radioShows as $radioShow) {
     $feed = new PodcastFeedImporter($parsed);
     $podcasts = $feed->getPodcastsInfo($latestPodcast->file_url);
     foreach ($podcasts as $podcast) {
+        $podcast->radio_show_id = $radioShow->id;
         $podcast->save();
     }
     logInfo('imported ' . count($podcasts) . ' new podcasts for show: ' . $radioShow->name);
