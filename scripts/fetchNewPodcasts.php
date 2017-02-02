@@ -14,7 +14,7 @@ foreach ($radioShows as $radioShow) {
     $latestPodcast = Podcast::latestByShowId($radioShow->id)->first();
     $parsed = $radioFeedGateway->getFullPodcastArrayFromFeed($radioShow->feed_url);
     $feed = new PodcastFeedImporter($parsed);
-    $podcasts = $feed->getPodcastsInfo($latestPodcast->file_url);
+    $podcasts = $feed->getPodcastsInfo($latestPodcast);
     foreach ($podcasts as $podcast) {
         $podcast->radio_show_id = $radioShow->id;
         $podcast->save();
