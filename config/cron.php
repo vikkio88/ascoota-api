@@ -22,6 +22,6 @@ return [
         ]
     ],
     'namespaces' => [
-
+        'App\Scripts\\'
     ]
 ];
