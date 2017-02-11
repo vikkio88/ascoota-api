@@ -2,10 +2,12 @@
 require '../vendor/autoload.php';
 
 use App\Lib\Helpers\Config;
+use Carbon\Carbon;
 use Illuminate\Database\Capsule\Manager as Capsule;
 use Mashtru\JobManager;
 use Mashtru\Libs\Factories\JobEntityFactory;
 use Mashtru\Libs\Helpers\DBConfig;
+use Mashtru\Models\JobEntity;
 
 
 $jobsConfig = Config::get('cron.jobs', '../');
@@ -28,6 +30,7 @@ $jobDb->install();
 
 echo "Adding configured jobs" . PHP_EOL;
 foreach ($jobsConfig as $job) {
+    $job['fire_time'] = Carbon::now()->format(JobEntity::TIME_FORMAT);
     $jobDb->create($job);
 }
 echo "Installed successfully" . PHP_EOL;
