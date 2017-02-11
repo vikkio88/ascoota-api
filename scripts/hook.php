@@ -18,7 +18,8 @@ $jobs = new JobManager(
         $dbConfig['password']
     ),
     new RunnerConfig(
-        Config::get('cron.namespaces', '../')
+        Config::get('cron.namespaces', '../'),
+        true
     )
 );
 
