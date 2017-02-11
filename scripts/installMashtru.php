@@ -1,13 +1,14 @@
 <?php
 require '../vendor/autoload.php';
 
+use App\Lib\Helpers\Config;
 use Illuminate\Database\Capsule\Manager as Capsule;
 use Mashtru\JobManager;
 use Mashtru\Libs\Factories\JobEntityFactory;
 use Mashtru\Libs\Helpers\DBConfig;
 
 
-$jobsConfig = \App\Lib\Helpers\Config::get('cron.jobs');
+$jobsConfig = Config::get('cron.jobs', '../');
 $dbConfig = Capsule::connection()->getConfig();
 
 
