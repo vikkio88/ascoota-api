@@ -4,7 +4,6 @@
 namespace App\Scripts;
 
 
-
 use App\Lib\Helpers\PodcastFeedImporter;
 use App\Lib\Helpers\RadioFeedGateway;
 use App\Models\Podcasts\Podcast;
@@ -28,6 +27,7 @@ class FetchNewPodcasts implements Job
                 $podcast->save();
             }
         }
+        return true;
     }
 
     public function getName()

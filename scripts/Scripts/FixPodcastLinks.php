@@ -28,6 +28,8 @@ class FixPodcastLinks implements Job
                 $podcasts[$i]->save();
             }
         }
+
+        return true;
     }
 
     public function getName()
