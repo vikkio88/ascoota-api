@@ -1,4 +1,6 @@
 <?php
+require '../vendor/autoload.php';
+
 use Illuminate\Database\Capsule\Manager as Capsule;
 use Mashtru\JobManager;
 use Mashtru\Libs\Factories\JobEntityFactory;
