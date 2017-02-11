@@ -19,11 +19,12 @@ $jobDb = JobEntityFactory::getInstance(
     JobManager::TABLE_NAME
 );
 
-
+echo "Creating db structure" . PHP_EOL;
 $jobDb->install();
 
+echo "Adding configured jobs" . PHP_EOL;
 foreach ($jobsConfig as $job) {
     $jobDb->create($job);
 }
-
+echo "Installed successfully" . PHP_EOL;
 unlink(__FILE__);
