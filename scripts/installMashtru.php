@@ -23,6 +23,7 @@ $jobDb = JobEntityFactory::getInstance(
 );
 
 echo "Creating db structure" . PHP_EOL;
+$jobDb->uninstall();
 $jobDb->install();
 
 echo "Adding configured jobs" . PHP_EOL;
