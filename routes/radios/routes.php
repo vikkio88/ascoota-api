@@ -4,6 +4,7 @@ use App\Actions\Podcast\PodcastGetLatestByShow;
 use App\Actions\Podcast\RadioGetAll;
 use App\Actions\Podcast\RadioGetOne;
 use App\Actions\Podcast\ShowGetOne;
+use App\Actions\Podcast\ShowGetPodcasts;
 use App\Actions\User\LoggedIn\ShowImportRequestAdd;
 
 $api->get('/radios', function ($request, $response, $args) {
@@ -38,6 +39,14 @@ $api->get('/radios/{id}/shows/{showId}', function ($request, $response, $args) {
     ))->execute();
 });
 
+$api->get('/radios/{id}/shows/{showId}/podcasts', function ($request, $response, $args) {
+    return (new ShowGetPodcasts(
+        $request,
+        $response,
+        $args
+    ))->execute();
+});
+
 $api->get('/radios/{id}/shows/{showId}/podcasts/latest', function ($request, $response, $args) {
     return (new PodcastGetLatestByShow(
         $request,
@@ -45,5 +54,6 @@ $api->get('/radios/{id}/shows/{showId}/podcasts/latest', function ($request, $re
         $args
     ))->execute();
 });
+
 
 
