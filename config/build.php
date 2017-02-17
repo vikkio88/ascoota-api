@@ -4,6 +4,7 @@ return [
     'folders' => [
         'scripts'
     ],
-    'files' => [
-    ]
+    'files' => [],
+    'vendorFolders' => [],
+    'vendorFiles' => []
 ];
