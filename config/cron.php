@@ -12,7 +12,7 @@ return [
             'priority' => 0
         ],
         [
-            'name' => '',
+            'name' => 'fetchNewPodcasts',
             'class_name' => 'FetchNewPodcasts',
             'args' => null,
             'delta_minutes' => 60 * 24,
