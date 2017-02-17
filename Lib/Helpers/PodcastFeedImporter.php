@@ -110,7 +110,7 @@ class PodcastFeedImporter
         $podcast->name = $this->getOrNull($item, 'title');
         $podcast->description = $this->getOrNull($item, 'description');
         $podcast->duration = $this->getOrNull($item, 'itunes:duration');
-        $podcast->file_url = $this->getOrNull($item, 'guid');
+        $podcast->file_url = $this->getAttrValFromTag($item, 'enclosure', 'url');
         $podcast->date = new Carbon($this->getOrNull($item, 'pubDate'));
         return $podcast;
     }
@@ -121,6 +121,19 @@ class PodcastFeedImporter
             return null;
         }
         return $array[$key];
+    }
+
+    private function getAttrValFromTag($item, $tag, $attribute)
+    {
+        $element = $this->getOrNull($item, $tag);
+        if (empty($element)
+            || !array_key_exists('@attributes', $element)
+            || !array_key_exists($attribute, $element['@attributes'])
+        ) {
+            return null;
+        }
+
+        return $element['@attributes'][$attribute];
     }
 
 }
