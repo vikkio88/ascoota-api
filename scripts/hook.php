@@ -8,7 +8,7 @@ use Mashtru\JobManager;
 use Mashtru\Libs\Helpers\DBConfig;
 use Mashtru\Libs\Helpers\RunnerConfig;
 
-$dbConfig = @Capsule::connection()->getConfig();
+$dbConfig = Capsule::connection()->getConfig(null);
 
 $jobs = new JobManager(
     new DBConfig(
