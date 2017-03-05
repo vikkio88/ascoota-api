@@ -4,6 +4,7 @@
 namespace App\Lib\Helpers;
 
 use App\Lib\Parsers\DeepFeedParser;
+use App\Lib\Parsers\Exceptions\InvalidFeedFormatException;
 use Exception;
 use SimpleXMLElement;
 
@@ -23,15 +24,21 @@ class RadioFeedGateway
     /**
      * @param $url
      * @return string
+     * @throws InvalidFeedFormatException
      */
     private function getRemoteFeedXml($url)
     {
         $feedContent = '';
+        if (empty($url)) {
+            throw new InvalidFeedFormatException();
+        }
+
         try {
             $feedContent = file_get_contents($url);
         } catch (Exception $error) {
-            $feedContent = '<error></error>';
+            throw new InvalidFeedFormatException();
         }
+
         return $feedContent;
     }
 

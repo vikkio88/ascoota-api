@@ -6,6 +6,7 @@ namespace App\Scripts;
 
 use App\Lib\Helpers\PodcastFeedImporter;
 use App\Lib\Helpers\RadioFeedGateway;
+use App\Lib\Parsers\Exceptions\InvalidFeedFormatException;
 use App\Models\Podcasts\Podcast;
 use App\Models\Podcasts\RadioShow;
 use Mashtru\Libs\Interfaces\Job;
@@ -19,7 +20,12 @@ class FetchNewPodcasts implements Job
         $radioFeedGateway = new RadioFeedGateway();
         foreach ($radioShows as $radioShow) {
             $latestPodcast = Podcast::latestByShowId($radioShow->id)->first();
-            $parsed = $radioFeedGateway->getFullPodcastArrayFromFeed($radioShow->feed_url);
+            $parsed = [];
+            try {
+                $parsed = $radioFeedGateway->getFullPodcastArrayFromFeed($radioShow->feed_url);
+            } catch (InvalidFeedFormatException $e) {
+                continue;
+            }
             $feed = new PodcastFeedImporter($parsed);
             $podcasts = $feed->getPodcastsInfo($latestPodcast);
             foreach ($podcasts as $podcast) {
