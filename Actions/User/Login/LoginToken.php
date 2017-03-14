@@ -10,7 +10,7 @@ use App\Lib\Slime\Exceptions\Http\UnAuthorizedException;
 use App\Lib\Slime\RestAction\ApiAction;
 use App\Models\Users\UserToken;
 
-class TokenLogin extends ApiAction
+class LoginToken extends ApiAction
 {
 
     protected function performAction()
