@@ -1,7 +1,7 @@
 <?php
 
 
-namespace App\Actions\User\Login;
+namespace App\Actions\User\Auth;
 
 
 use App\Lib\Helpers\JwtHelper;
