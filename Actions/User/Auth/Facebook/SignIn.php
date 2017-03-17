@@ -10,6 +10,7 @@ use App\Lib\Slime\RestAction\ApiAction;
 use App\Models\Users\Auth\SocialProvider;
 use App\Models\Users\Auth\UserSocialProvider;
 use App\Models\Users\User;
+use Exception;
 use Facebook\Exceptions\FacebookResponseException;
 use Facebook\Facebook;
 
@@ -40,7 +41,7 @@ class SignIn extends ApiAction
     {
         $socialProvider = SocialProvider::where('name', $this->providerName)->first();
         if (empty($socialProvider)) {
-            throw new UnAuthorizedException('Internal Auth Error');
+            throw new Exception('Internal Auth Error');
         }
         $localUser = UserSocialProvider::where(
             [
