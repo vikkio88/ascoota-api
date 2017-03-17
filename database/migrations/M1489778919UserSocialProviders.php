@@ -15,7 +15,7 @@ class M1489778919UserSocialProviders implements DbHelperInterface
         Capsule::schema()->create($tableName, function (Blueprint $table) {
             $table->increments('id');
             $table->integer('user_id')->index()->unsigned();
-            $table->integer('provider_user_id')->index()->unsigned();
+            $table->string('provider_user_id')->index();
             $table->integer('social_provider_id')->index()->unsigned();
             $table->timestamps();
         });

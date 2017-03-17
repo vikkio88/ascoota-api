@@ -50,8 +50,9 @@ class SignIn extends ApiAction
             ]
         )->first();
 
+        $localUserId = empty($localUser) ? null : $localUser->user_id;
         // TODO: check if the user was already there with the email but a different social
-        if (!$localUser) {
+        if (empty($localUserId)) {
             $localUser = User::create(
                 [
                     'name' => $providerUser['name'],
@@ -67,11 +68,12 @@ class SignIn extends ApiAction
                     'provider_user_id' => $providerUser['id'],
                 ]
             );
+            $localUserId = $localUser->id;
         }
 
         return [
             'token' => JwtHelper::encode(
-                TokenHelper::getTokenPayload($localUser->id)
+                TokenHelper::getTokenPayload($localUserId)
             )
         ];
 
