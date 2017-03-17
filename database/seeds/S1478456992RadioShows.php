@@ -16,11 +16,13 @@ class S1478456992RadioShows implements DbHelperInterface
         foreach ($radios as $radio) {
             $showsNumber = rand(2, 10);
             foreach (range(0, $showsNumber) as $_) {
+                $name = $faker->company . rand(1, 5);
                 RadioShow::create(
                     [
-                        'name' => $faker->company . rand(1, 5),
+                        'name' => $name,
                         'author' => $faker->name(),
                         'description' => $faker->text(rand(6, 100)),
+                        'slug' => strtolower(str_replace(' ', '-', $name)),
                         'radio_id' => $radio->id,
                         'language_id' => Language::all()->random()->id,
                         'website' => $faker->url,
