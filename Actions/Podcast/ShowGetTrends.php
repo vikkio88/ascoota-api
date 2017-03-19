@@ -9,6 +9,6 @@ class ShowGetTrends extends ApiAction
 {
     protected function performAction()
     {
-        $this->payload = RadioShow::orderBy('created_at', 'DESC')->get();
+        $this->payload = RadioShow::orderBy('created_at', 'DESC')->limit(6)->get();
     }
 }
