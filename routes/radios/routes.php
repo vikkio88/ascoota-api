@@ -7,13 +7,7 @@ use App\Actions\Podcast\ShowGetOne;
 use App\Actions\Podcast\ShowGetPodcasts;
 use App\Actions\User\LoggedIn\ShowImportRequestAdd;
 
-$api->get('/radios', function ($request, $response, $args) {
-    return (new RadioGetAll(
-        $request,
-        $response,
-        $args
-    ))->execute();
-});
+$api->get('/radios', RadioGetAll::class);
 
 $api->post('/radios/{id}/shows/import', function ($request, $response, $args) {
     return (new ShowImportRequestAdd(
