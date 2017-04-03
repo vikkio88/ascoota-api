@@ -11,7 +11,7 @@ class InvalidFeedFormatException extends SlimeException
 
     public function __construct()
     {
-        parent::__construct("Feed Format Invalid");
+        parent::__construct("Invalid Feed Format");
     }
 
 
