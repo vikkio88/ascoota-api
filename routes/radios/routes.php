@@ -17,37 +17,13 @@ $api->post('/radios/{id}/shows/import', function ($request, $response, $args) {
     ))->execute();
 });
 
-$api->get('/radios/{id}', function ($request, $response, $args) {
-    return (new RadioGetOne(
-        $request,
-        $response,
-        $args
-    ))->execute();
-});
+$api->get('/radios/{id}', RadioGetOne::class);
 
-$api->get('/radios/{id}/shows/{showId}', function ($request, $response, $args) {
-    return (new ShowGetOne(
-        $request,
-        $response,
-        $args
-    ))->execute();
-});
+$api->get('/radios/{id}/shows/{showId}', ShowGetOne::class);
 
-$api->get('/radios/{id}/shows/{showId}/podcasts', function ($request, $response, $args) {
-    return (new ShowGetPodcasts(
-        $request,
-        $response,
-        $args
-    ))->execute();
-});
+$api->get('/radios/{id}/shows/{showId}/podcasts', ShowGetPodcasts::class);
 
-$api->get('/radios/{id}/shows/{showId}/podcasts/latest', function ($request, $response, $args) {
-    return (new PodcastGetLatestByShow(
-        $request,
-        $response,
-        $args
-    ))->execute();
-});
+$api->get('/radios/{id}/shows/{showId}/podcasts/latest', PodcastGetLatestByShow::class);
 
 
 
