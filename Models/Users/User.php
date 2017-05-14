@@ -16,12 +16,19 @@ class User extends SlimeModel
     {
         return $query->with(
             'listening',
-            'listening.podcast'
+            'listening.podcast',
+            'favourites',
+            'favourites.show'
         );
     }
 
     public function listening()
     {
         return $this->hasOne(UserActivePodcast::class);
+    }
+
+    public function favourites()
+    {
+        return $this->hasMany(FavouriteShow::class);
     }
 }
