@@ -17,6 +17,7 @@ class S1478990188FeedRequests implements DbHelperInterface
             FeedRequest::create(
                 [
                     'user_id' => $user->id,
+                    'radio_name' => 'radio ' . $faker->lastName,
                     'feed_url' => $faker->url,
                     'radio_id' => Radio::all()->random()->id,
                 ]
